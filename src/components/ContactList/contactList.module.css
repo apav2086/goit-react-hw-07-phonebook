@@ -1,0 +1,24 @@
+.listItem {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+button {
+    font-size: 1rem;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 0.5rem;
+        border: none;
+        cursor: pointer;
+        margin: 15px;
+        padding: 8px 8px;
+        opacity: 0.7;
+    }
+
+        button:hover {
+            background-color: #799FBA;
+            color: #ffff;
+            opacity: 1;
+
+        }

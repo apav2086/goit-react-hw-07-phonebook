@@ -4,7 +4,7 @@ import { fetchContacts, postContacts } from "../../redux/operators";
 import { getContacts } from "../../redux/selectors";
 
 
-function ContactForm() {
+export default function ContactForm() {
  const [formData, setFormData] = useState({
     name: '',
     number: '',
@@ -76,6 +76,4 @@ function ContactForm() {
       </form>
     </div>
   );
-}
-
-export default ContactForm;
+};

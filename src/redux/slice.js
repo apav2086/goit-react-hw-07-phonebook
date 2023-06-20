@@ -8,7 +8,7 @@ const initialState = {
         isLoading: false,
         error: null
     },
-    filter: ""
+    filter: "",
 };
 
 const rootReducer = createSlice({

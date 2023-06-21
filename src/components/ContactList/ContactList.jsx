@@ -8,15 +8,15 @@ export default function ContactList() {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
   const dispatch = useDispatch();
- 
+
   useEffect(() => {
-    dispatch(fetchContacts())
-  }, []);
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   function onDelete(id) {
     dispatch(deleteContacts(id)).then(() => {
       dispatch(fetchContacts());
-    })
+    });
   }
   const filteredContacts = contacts.filter(contact => {
     const contactName = contact.name.toLowerCase();
@@ -28,7 +28,7 @@ export default function ContactList() {
   return (
     <div>
       <h2>Contacts</h2>
-    
+
       {contacts && (
         <ul>
           {contacts.length > 0 &&
@@ -42,5 +42,4 @@ export default function ContactList() {
       )}
     </div>
   );
-};
-
+}

@@ -14,32 +14,32 @@ export default function ContactForm() {
 //  const filterValue = useSelector(getFilter); // Accessing the filter value from Redux store
   const dispatch = useDispatch(); // Hook for dispatching Redux actions
 
-   function handleSubmit(e) {
-    e.preventDefault();
+  function handleSubmit(e) {
+  e.preventDefault();
 
-    if (formData.name === '' || formData.number === '') {
-      return;
-    }
-    const isContactExists = contacts.some(
-      contact => contact.name === formData.name
-    );
-    const isNumberExists = contacts.some(
-      contact => contact.number === formData.number
-    );
-
-    if (isContactExists) {
-      alert(`${formData.name} is already in the contact list`);
-      return;
-    } else if (isNumberExists) {
-      alert(`${formData.number} is already in the contact list`);
-      return;
-    }
-
-         dispatch(postContacts(formData)).then(() => {
-             dispatch(fetchContacts());
-         });
-     
+  if (formData.name === '' || formData.number === '') {
+    return;
   }
+  const isContactExists = contacts.some(
+    contact => contact.name === formData.name
+  );
+  const isNumberExists = contacts.some(
+    contact => contact.number === formData.number
+  );
+
+  if (isContactExists) {
+    alert(`${formData.name} is already in the contact list`);
+    return;
+  } else if (isNumberExists) {
+    alert(`${formData.number} is already in the contact list`);
+    return;
+  }
+
+  dispatch(postContacts(formData)).then(() => {
+    dispatch(fetchContacts());
+    setFormData({ name: '', number: '' }); // Clear the form fields
+  });
+}
 
   return (
     <div>
